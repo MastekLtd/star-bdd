@@ -1,0 +1,7 @@
+glob2
+Mako
+parse
+parse_type
+py
+pytest>=3.0.0
+six>=1.9.0

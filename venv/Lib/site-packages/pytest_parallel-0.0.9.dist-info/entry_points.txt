@@ -1,0 +1,3 @@
+[pytest11]
+parallel = pytest_parallel
+

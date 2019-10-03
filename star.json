@@ -1,0 +1,16 @@
+{
+  "URLS": {
+    "QA": "https://www.wikipedia.org/",
+    "STAGING": "",
+    "PROD": "",
+    "DEV": ""
+  },
+  "BROWSER_MAPPING": {
+    "BASIC_WIKIPEDIA_SEARCH1": "CHROME",
+    "BASIC_WIKIPEDIA_SEARCH2": "FIREFOX"
+  },
+  "PROJECT_NAME": "CORE TEAM",
+  "DEVELOPED BY": "RAVI SALUNKHE",
+  "FRAMEWORK AUTHOR": "RAVI SALUNKHE(RAVI.SALUNKHE@MASTEK.COM)",
+  "TEST_TYPE": "WEB"
+}
