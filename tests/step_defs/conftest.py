@@ -11,7 +11,7 @@ def driver(request):
         scenario_name = str(request.node.originalname).replace('test_', '')
         print(scenario_name)
         key_value = CommonFunctions.get_browser_mapping(scenario_name)
-        print('key_value ------>>> ' + key_value)
+        print('key_value ======>>>>> ' + key_value)
 
         if key_value == "CHROME":
             d = webdriver.Chrome(executable_path='drivers/chromedriver.exe')

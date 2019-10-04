@@ -1,10 +1,11 @@
 import json
-import traceback
+from traceback import print_stack
 
 
 class CommonFunctions():
 
     def get_browser_mapping(scenario_name=None):
+        # CommonFunctions().get_info()
         try:
             if scenario_name is None:
                 print('Scenario name :: ' + scenario_name + ' not defined in star.json, please re-check and confirm!')
@@ -14,7 +15,7 @@ class CommonFunctions():
                 print('browser_type is ' + str(browser_type))
                 return browser_type
         except:
-            print(traceback.format_exc())
+            print(print_stack())
             print('Error while getting the browser mapping')
 
     def get_star_json(self, key_name, sub_key_name=None):
@@ -32,5 +33,6 @@ class CommonFunctions():
                 print('printing values now :: ' + data[key_name][sub_key_name])
                 return data[key_name][sub_key_name]
         except:
-            print(traceback.format_exc())
+            print(print_stack())
             print('Error reading data from star.json')
+

@@ -1,18 +1,17 @@
-##########################################
+#####################################################
 ####
 # Description : Wrapper methods for selenium library
 # Developer : Ravi Salunkhe(ravi.salunkhe@mastek.com)
 # Modified Date : 3rd Oct 2019
 ####
-###########################################
-
-
+######################################################
 from traceback import print_stack
 
 from selenium.webdriver.common.by import By
 
 
 class WrapperFunctions():
+    __author__ = 'Ravi Salunkhe'
 
     def __init__(self, driver):
         self.driver = driver
