@@ -5,13 +5,18 @@
 # Modified Date : 3rd Oct 2019
 ####
 ######################################################
+import logging
 from traceback import print_stack
 
 from selenium.webdriver.common.by import By
 
+from core.star_logger import star_log
+
 
 class WrapperFunctions():
     __author__ = 'Ravi Salunkhe'
+
+    log = star_log(log_level=logging.DEBUG)
 
     def __init__(self, driver):
         self.driver = driver
@@ -41,8 +46,8 @@ class WrapperFunctions():
         elif locator_type == "tag_name":
             return By.TAG_NAME
         else:
-            # self.log.info("Locator type : " + locator_type + " not correct or supported")
-            print("Locator type : " + locator_type + " not correct or supported")
+            self.log.info("Locator type ==> " + locator_type + " not correct or supported")
+            # print("Locator type : " + locator_type + " not correct or supported")
             return False
 
     def get_element(self, locator, locator_type="id"):
@@ -56,9 +61,9 @@ class WrapperFunctions():
         try:
             by_type = self.get_by_type(locator_type)
             element = self.driver.find_element(by_type, locator)
-            print("Element found with locator :: " + locator + " and locator_type :: " + locator_type)
+            self.log.info("Element found with locator ==> " + locator + " and locator_type ==> " + locator_type)
         except:
-            print("Element NOT found with locator :: " + locator + " and locator_type :: " + locator_type)
+            self.log.info("Element NOT found with locator ==> " + locator + " and locator_type ==> " + locator_type)
         return element
 
     def enter_text(self, data, locator, locator_type="id"):
@@ -72,10 +77,11 @@ class WrapperFunctions():
         try:
             element = self.get_element(locator, locator_type)
             element.send_keys(data)
-            print("Entered " + data + " on element with locator :: " + locator + " and locator_type :: " + locator_type)
+            self.log.info(
+                "Entered " + data + " on element with locator ==> " + locator + " and locator_type ==> " + locator_type)
         except:
-            print(
-                "Unable to enter " + data + " in element with locator :: " + locator + " and locator_type :: " + locator_type)
+            self.log.info(
+                "Unable to enter " + data + " in element with locator ==> " + locator + " and locator_type ==> " + locator_type)
             print_stack()
 
     def get_element_text(self, locator, locator_type="id"):
@@ -89,11 +95,11 @@ class WrapperFunctions():
         try:
             element = self.get_element(locator, locator_type)
             text = element.text
-            print(
-                "Element text captured as " + text + " on element with locator :: " + locator + " and locator_type :: " + locator_type)
+            self.log.info(
+                "Element text captured as " + text + " on element with locator ==> " + locator + " and locator_type ==> " + locator_type)
         except:
-            print(
-                "Unable to capture text from  element with locator :: " + locator + " and locator_type :: " + locator_type)
+            self.log.info(
+                "Unable to capture text from  element with locator ==> " + locator + " and locator_type ==> " + locator_type)
             print_stack()
         return text
 
@@ -115,11 +121,11 @@ class WrapperFunctions():
         try:
             by_type = self.getByType(locator_type)
             element = self.driver.find_elements(by_type, locator)
-            self.log.info("Element list found with locator: " + locator +
-                          " and locatorType: " + locator_type)
+            self.log.info("Element list found with locator ==> " + locator +
+                          " and locator_type ==> " + locator_type)
         except:
-            self.log.info("Element list not found with locator: " + locator +
-                          " and locatorType: " + locator_type)
+            self.log.info("Element list not found with locator ==> " + locator +
+                          " and locator_type ==> " + locator_type)
         return element
 
     def click_element(self, locator="", locator_type="id", element=None):
@@ -135,11 +141,11 @@ class WrapperFunctions():
             if locator:  # This means if locator is not empty
                 element = self.get_element(locator, locator_type)
             element.click()
-            self.log.info("Clicked on element with locator: " + locator +
-                          " locatorType: " + locator_type)
+            self.log.info("Clicked on element with locator ==> " + locator +
+                          " locator_type ==> " + locator_type)
         except:
-            self.log.info("Cannot click on the element with locator: " + locator +
-                          " locatorType: " + locator_type)
+            self.log.info("Cannot click on the element with locator ==> " + locator +
+                          " locator_type ==> " + locator_type)
             print_stack()
 
     def clear_field(self, locator="", locator_type="id"):
@@ -151,8 +157,8 @@ class WrapperFunctions():
         """
         element = self.get_element(locator, locator_type)
         element.clear()
-        self.log.info("Clear field with locator: " + locator +
-                      " locatorType: " + locator_type)
+        self.log.info("Clear field with locator ==> " + locator +
+                      " locatorType ==> " + locator_type)
 
     def is_element_present(self, locator="", locator_type="id", element=None):
         """
@@ -167,12 +173,12 @@ class WrapperFunctions():
             if locator:  # This means if locator is not empty
                 element = self.getElement(locator, locator_type)
             if element is not None:
-                self.log.info("Element present with locator: " + locator +
-                              " locatorType: " + locator_type)
+                self.log.info("Element present with locator ==> " + locator +
+                              " locator_type ==> " + locator_type)
                 return True
             else:
-                self.log.info("Element not present with locator: " + locator +
-                              " locatorType: " + locator_type)
+                self.log.info("Element not present with locator ==> " + locator +
+                              " locator_type ==> " + locator_type)
                 return False
         except:
             print("Element not found")

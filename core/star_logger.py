@@ -14,3 +14,5 @@ def star_log(log_level=logging.DEBUG):
                                   datefmt='%m/%d/%Y %I:%M:%S %p')
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
+
+    return logger
