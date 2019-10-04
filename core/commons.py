@@ -35,4 +35,3 @@ class CommonFunctions():
         except:
             print(print_stack())
             print('Error reading data from star.json')
-
