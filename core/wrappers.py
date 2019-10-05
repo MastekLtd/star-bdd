@@ -28,27 +28,30 @@ class WrapperFunctions():
         :param locator_type:
         :return:
         """
-        locator_type = locator_type.lower()
-        if locator_type == "id":
-            return By.ID
-        elif locator_type == "name":
-            return By.NAME
-        elif locator_type == "xpath":
-            return By.XPATH
-        elif locator_type == "css":
-            return By.CSS_SELECTOR
-        elif locator_type == "class_name":
-            return By.CLASS_NAME
-        elif locator_type == "link_text":
-            return By.LINK_TEXT
-        elif locator_type == "partial_link_text":
-            return By.PARTIAL_LINK_TEXT
-        elif locator_type == "tag_name":
-            return By.TAG_NAME
-        else:
-            self.log.info("Locator type ==> " + locator_type + " not correct or supported")
-            # print("Locator type : " + locator_type + " not correct or supported")
-            return False
+        try:
+            locator_type = locator_type.lower()
+            if locator_type == "id":
+                return By.ID
+            elif locator_type == "name":
+                return By.NAME
+            elif locator_type == "xpath":
+                return By.XPATH
+            elif locator_type == "css":
+                return By.CSS_SELECTOR
+            elif locator_type == "class_name":
+                return By.CLASS_NAME
+            elif locator_type == "link_text":
+                return By.LINK_TEXT
+            elif locator_type == "partial_link_text":
+                return By.PARTIAL_LINK_TEXT
+            elif locator_type == "tag_name":
+                return By.TAG_NAME
+            else:
+                self.log.info("Locator type ==> " + locator_type + " not correct or supported")
+                # print("Locator type : " + locator_type + " not correct or supported")
+                return False
+        except:
+            self.log.info('Issue with locator type ==> ' + locator_type)
 
     def get_element(self, locator, locator_type="id"):
         """
@@ -155,10 +158,13 @@ class WrapperFunctions():
         :param locator_type:
         :return:
         """
-        element = self.get_element(locator, locator_type)
-        element.clear()
-        self.log.info("Clear field with locator ==> " + locator +
-                      " locatorType ==> " + locator_type)
+        try:
+            element = self.get_element(locator, locator_type)
+            element.clear()
+            self.log.info("Clear field with locator ==> " + locator +
+                          " locator_type ==> " + locator_type)
+        except:
+            self.log.info('Unable to clear field with locator as ==> ' + locator + ' locator_type ==> ' + locator_type)
 
     def is_element_present(self, locator="", locator_type="id", element=None):
         """
@@ -180,6 +186,30 @@ class WrapperFunctions():
                 self.log.info("Element not present with locator ==> " + locator +
                               " locator_type ==> " + locator_type)
                 return False
+        except:
+            print("Element not found")
+            return False
+
+    def is_element_displayed(self, locator="", locator_type="id", element=None):
+        """
+        Check if element is displayed
+        Either provide element or a combination of locator and locatorType
+        :param locator:
+        :param locator_type: id/name/xpath/class_name
+        :param element:
+        :return:
+        """
+
+        is_displayed = False
+        try:
+            if locator:  # This means if locator is not empty
+                element = self.get_element(locator, locator_type)
+            if element is not None:
+                is_displayed = element.is_displayed()
+                self.log.info("Element is displayed | locator ==> " + locator + " locator_type ==> " + locator_type)
+            else:
+                self.log.info("Element not displayed | locator ==> " + locator + " locator_type ==> " + locator_type)
+            return is_displayed
         except:
             print("Element not found")
             return False
