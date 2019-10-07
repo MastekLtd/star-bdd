@@ -1,36 +1,47 @@
+import logging
+
 import pytest
 from selenium import webdriver
 
 from core.commons import CommonFunctions
+from core.star_logger import star_log
 
-
-# global feature_name = None
+log = star_log(log_level=logging.DEBUG)
 
 
 # Before context
 def pytest_bdd_before_scenario(request, feature, scenario):
-    print('########## BEFORE SCENARIO ##############')
-    print(feature.name)
+    log.info('############ Scenario ==>> ||| ' + scenario.name + ' ||| Started ############')
+    # print('########## BEFORE SCENARIO ##############')
+    # print(feature.name)
 
 
 def pytest_bdd_after_scenario(request, feature, scenario):
-    print('########## AFTER SCENARIO  ##############')
+    log.info('############ Scenario ==>> ||| ' + scenario.name + ' ||| Ended ############')
+    # print('########## AFTER SCENARIO  ##############')
 
 
 def pytest_bdd_before_step_call(request, feature, scenario, step, step_func, step_func_args):
-    print('########## BEFORE STEP  ##############')
+    log.info('############ Executing Step ==>> ||| ' + step.name + ' ||| ############')
+    allure.step(step.name)
+    # print('########## BEFORE STEP  ##############')
 
 
 def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func_args):
-    print('########## AFTER STEP  ##############')
+    log.info('############ Step ==>> ||| ' + step.name + ' ||| Execution completed ############')
+    # print('########## AFTER STEP  ##############')
 
 
 def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
-    print('########## STEP ERROR  ##############')
+    log.info('############ Error Found on Step Name ==>> ||| ' + step.name + ' ||| ############')
+    allure.step(step.name)
+    # print('########## STEP ERROR  ##############')
 
 
 def pytest_bdd_step_validation_error(request, feature, scenario, step, step_func, step_func_args, exception):
-    print('########## VALIDATION ERROR  ##############')
+    log.info('############ Step Validation Error found on Step Name ==>> ||| ' + step.name + ' ||| ############')
+    allure.step(step.name)
+    # print('########## VALIDATION ERROR  ##############')
 
 
 # Fixtures
