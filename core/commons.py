@@ -46,3 +46,6 @@ class CommonFunctions():
         except:
             print(print_stack())
             print_stack('Error taking screenshot!')
+
+    def log_pass(self):
+        pass

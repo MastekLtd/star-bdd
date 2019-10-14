@@ -8,6 +8,7 @@
 import logging
 from traceback import print_stack
 
+import pytest_check as check
 from selenium.webdriver.common.by import By
 
 from core.star_logger import star_log
@@ -213,3 +214,13 @@ class WrapperFunctions():
         except:
             print("Element not found")
             return False
+
+    def verify_text_equals(self, actual_text, expected_text):
+        """
+        Function to comapare, verify and log element text value
+        :param actual_text:
+        :param expected_text:
+        :return:
+        """
+
+        check.equal(actual_text, expected_text, "Check if both values are equal")
