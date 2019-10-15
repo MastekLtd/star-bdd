@@ -9,9 +9,20 @@
     "BASIC_WIKIPEDIA_SEARCH1": "CHROME",
     "BASIC_WIKIPEDIA_SEARCH2": "CHROME"
   },
+  "DB": {
+    "MSSQL": {
+      "DRIVER": "{SQL Server};",
+      "SERVER": "IN-MH1LPW101177;",
+      "DATABASE": "db1;",
+      "TRUSTED_CONNECTION": "yes;"
+    },
+    "ORACLE": {},
+    "MONGODB": {},
+    "POSTGRESQL": {}
+  },
   "PROJECT_NAME": "CORE TEAM",
   "DEVELOPED BY": "RAVI SALUNKHE",
   "FRAMEWORK AUTHOR": "RAVI SALUNKHE(RAVI.SALUNKHE@MASTEK.COM)",
-  "TEST_TYPE": "WEB",
-  "VERSION": "0.5"
+  "TEST_TYPE": "DB",
+  "VERSION": "0.8"
 }

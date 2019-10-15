@@ -1,4 +1,4 @@
-from pytest_bdd import scenarios, given, when, then, parsers
+from pytest_bdd import (scenarios, given, when, then, parsers)
 
 from core.commons import CommonFunctions
 from tests.pageobjects.homescreen import HomeScreen

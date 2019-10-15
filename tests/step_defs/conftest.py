@@ -42,11 +42,12 @@ def pytest_runtest_makereport(item):
     extra = getattr(report, 'extra', [])
     if report.when == 'call' or report.when == 'setup':
         xfail = hasattr(report, 'wasxfail')
-        feature_request = item.funcargs['request']
-        driver = feature_request.getfixturevalue('driver')
-        if (report.skipped and xfail) or (report.failed and not xfail):
-            screenshot = driver.get_screenshot_as_base64()
-            extra.append(pytest_html.extras.image(screenshot, ''))
+        if CommonFunctions().get_star_json(key_name='TEST_TYPE') == 'WEB':
+            feature_request = item.funcargs['request']
+            driver = feature_request.getfixturevalue('driver')
+            if (report.skipped and xfail) or (report.failed and not xfail):
+                screenshot = driver.get_screenshot_as_base64()
+                extra.append(pytest_html.extras.image(screenshot, ''))
         report.extra = extra
 
 
@@ -89,12 +90,10 @@ def driver(request):
         # work in progress | Ravi Salunkhe
         pass
     elif CommonFunctions().get_star_json(key_name='TEST_TYPE') == 'DB':
-        try:
+        # work in progress | Ravi Salunkhe
+        pass
 
-            pass
 
-        except:
-            pass
     else:
         pass
 

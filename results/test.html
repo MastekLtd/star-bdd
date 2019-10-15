@@ -404,10 +404,9 @@ function filter_table(elem) {
     var not_found_message = document.getElementById("not-found-message");
     not_found_message.hidden = !all_rows_hidden;
 }
-
 </script>
 <h1>test.html</h1>
-<p>Report generated on 14-Oct-2019 at 14:11:42 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+<p>Report generated on 15-Oct-2019 at 15:29:33 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
     v2.0.0</p>
 <h2>Environment</h2>
 <table id="environment">
@@ -436,18 +435,18 @@ function filter_table(elem) {
     </tr>
 </table>
 <h2>Summary</h2>
-<p>2 tests ran in 46.51 seconds. </p>
+<p>2 tests ran in 17.60 seconds. </p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter"
                                                                                      data-test-result="passed"
-                                                                                     disabled="true" hidden="true"
+                                                                                     hidden="true"
                                                                                      name="filter_checkbox"
                                                                                      onChange="filter_table(this)"
                                                                                      type="checkbox"/><span
-        class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true"
+        class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true"
                                                hidden="true" name="filter_checkbox" onChange="filter_table(this)"
                                                type="checkbox"/><span class="skipped">0 skipped</span>, <input
-        checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox"
-        onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true"
+        checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox"
+        onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true"
                                                                                                     class="filter"
                                                                                                     data-test-result="error"
                                                                                                     disabled="true"
@@ -473,99 +472,73 @@ function filter_table(elem) {
         <th colspan="4">No results found. Try to check the filters</th>
     </tr>
     </thead>
-    <tbody class="failed results-table-row">
+    <tbody class="passed results-table-row">
     <tr>
-        <td class="col-result">Failed</td>
-        <td class="col-name">tests/step_defs/test_web.py::test_basic_wikipedia_search1[sachin tendulkar]</td>
-        <td class="col-duration">11.82</td>
+        <td class="col-result">Passed</td>
+        <td class="col-name">tests/step_defs/test_db_new.py::test_database_validation_new[SELECT * from
+            db1.dbo.student-SELECT * from db2.dbo.student0]
+        </td>
+        <td class="col-duration">8.22</td>
         <td class="col-links"></td>
     </tr>
     <tr>
         <td class="extra" colspan="4">
-            <div class="log">FAILURE: check if both values are equal<br/>assert &#x27;Sachin Tendulkar&#x27; == &#x27;sachin
-                tendulkar&#x27;<br/> - Sachin Tendulkar<br/> ? ^ ^<br/> + sachin tendulkar<br/> ? ^ ^<br/>
-                tests\step_defs\test_web.py, line 26, in validate_header_value() -&gt;
-                header.verify_header_text(name)<br/> tests\pageobjects\resultsscreen.py, line 16, in
-                verify_header_text() -&gt; self.verify_text_equals(actual_text=header_text, expected_text=text)<br/>
-                core\wrappers.py, line 224, in verify_text_equals() -&gt; check.equal(actual_text,expected_text,&quot;check
-                if both values are equal&quot;)<br/>------------------------------------------------------------<br/>Failed
-                Checks: 1<br/> -------------------------------Captured log call-------------------------------- <br/>[32mINFO
-                [0m &lt;module&gt;:conftest.py:15 ############ Scenario ==&gt;&gt; ||| Basic Wikipedia Search1 |||
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>[32mINFO
+                [0m &lt;module&gt;:conftest.py:13 ############ Scenario ==&gt;&gt; ||| Database validation_new |||
                 Started ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:23 ############ Executing Step ==&gt;&gt; ||| the wikipedia
-                home page is displayed ||| ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:27 ############ Step ==&gt;&gt; ||| the wikipedia home page is
-                displayed ||| Execution completed ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:23 ############ Executing Step ==&gt;&gt; ||| the user
-                searches for &quot;&lt;name&gt;&quot; ||| ############
-                [32mINFO [0m WrapperFunctions:wrappers.py:66 Element found with locator ==&gt; search and locator_type
-                ==&gt; name
-                [32mINFO [0m WrapperFunctions:wrappers.py:83 Entered sachin tendulkar on element with locator ==&gt;
-                search and locator_type ==&gt; name
-                [32mINFO [0m WrapperFunctions:wrappers.py:66 Element found with locator ==&gt; //i[text()=&#x27;Search&#x27;]
-                and locator_type ==&gt; xpath
-                [32mINFO [0m WrapperFunctions:wrappers.py:147 Clicked on element with locator ==&gt; //i[text()=&#x27;Search&#x27;]
-                locator_type ==&gt; xpath
-                [32mINFO [0m &lt;module&gt;:conftest.py:27 ############ Step ==&gt;&gt; ||| the user searches for
-                &quot;&lt;name&gt;&quot; ||| Execution completed ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:23 ############ Executing Step ==&gt;&gt; ||| results are
-                shown for &quot;&lt;name&gt;&quot; ||| ############
-                [32mINFO [0m WrapperFunctions:wrappers.py:66 Element found with locator ==&gt; firstHeading and
-                locator_type ==&gt; id
-                [32mINFO [0m WrapperFunctions:wrappers.py:101 Element text captured as Sachin Tendulkar on element
-                with locator ==&gt; firstHeading and locator_type ==&gt; id
-                [32mINFO [0m &lt;module&gt;:conftest.py:27 ############ Step ==&gt;&gt; ||| results are shown for
-                &quot;&lt;name&gt;&quot; ||| Execution completed ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:19 ############ Scenario ==&gt;&gt; ||| Basic Wikipedia
-                Search1 ||| Ended ############<br/></div>
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| connection is
+                established between source and target databases ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| connection is established
+                between source and target databases ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| user executes
+                &quot;&lt;query1&gt;&quot; on source and &quot;&lt;query2&gt;&quot; on target databases ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| user executes &quot;&lt;query1&gt;&quot;
+                on source and &quot;&lt;query2&gt;&quot; on target databases ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| results from
+                both database resultsets are compared ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| results from both database
+                resultsets are compared ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| user reports any
+                mismatches ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| user reports any
+                mismatches ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:17 ############ Scenario ==&gt;&gt; ||| Database
+                validation_new ||| Ended ############<br/></div>
         </td>
     </tr>
     </tbody>
-    <tbody class="failed results-table-row">
+    <tbody class="passed results-table-row">
     <tr>
-        <td class="col-result">Failed</td>
-        <td class="col-name">tests/step_defs/test_web.py::test_basic_wikipedia_search1[amitabh bachchan]</td>
-        <td class="col-duration">10.70</td>
+        <td class="col-result">Passed</td>
+        <td class="col-name">tests/step_defs/test_db_new.py::test_database_validation_new[SELECT * from
+            db1.dbo.student-SELECT * from db2.dbo.student1]
+        </td>
+        <td class="col-duration">8.11</td>
         <td class="col-links"></td>
     </tr>
     <tr>
         <td class="extra" colspan="4">
-            <div class="log">FAILURE: check if both values are equal<br/>assert &#x27;Amitabh Bachchan&#x27; == &#x27;amitabh
-                bachchan&#x27;<br/> - Amitabh Bachchan<br/> ? ^ ^<br/> + amitabh bachchan<br/> ? ^ ^<br/>
-                tests\step_defs\test_web.py, line 26, in validate_header_value() -&gt;
-                header.verify_header_text(name)<br/> tests\pageobjects\resultsscreen.py, line 16, in
-                verify_header_text() -&gt; self.verify_text_equals(actual_text=header_text, expected_text=text)<br/>
-                core\wrappers.py, line 224, in verify_text_equals() -&gt; check.equal(actual_text,expected_text,&quot;check
-                if both values are equal&quot;)<br/>------------------------------------------------------------<br/>Failed
-                Checks: 1<br/> -------------------------------Captured log call-------------------------------- <br/>[32mINFO
-                [0m &lt;module&gt;:conftest.py:15 ############ Scenario ==&gt;&gt; ||| Basic Wikipedia Search1 |||
+            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>[32mINFO
+                [0m &lt;module&gt;:conftest.py:13 ############ Scenario ==&gt;&gt; ||| Database validation_new |||
                 Started ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:23 ############ Executing Step ==&gt;&gt; ||| the wikipedia
-                home page is displayed ||| ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:27 ############ Step ==&gt;&gt; ||| the wikipedia home page is
-                displayed ||| Execution completed ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:23 ############ Executing Step ==&gt;&gt; ||| the user
-                searches for &quot;&lt;name&gt;&quot; ||| ############
-                [32mINFO [0m WrapperFunctions:wrappers.py:66 Element found with locator ==&gt; search and locator_type
-                ==&gt; name
-                [32mINFO [0m WrapperFunctions:wrappers.py:83 Entered amitabh bachchan on element with locator ==&gt;
-                search and locator_type ==&gt; name
-                [32mINFO [0m WrapperFunctions:wrappers.py:66 Element found with locator ==&gt; //i[text()=&#x27;Search&#x27;]
-                and locator_type ==&gt; xpath
-                [32mINFO [0m WrapperFunctions:wrappers.py:147 Clicked on element with locator ==&gt; //i[text()=&#x27;Search&#x27;]
-                locator_type ==&gt; xpath
-                [32mINFO [0m &lt;module&gt;:conftest.py:27 ############ Step ==&gt;&gt; ||| the user searches for
-                &quot;&lt;name&gt;&quot; ||| Execution completed ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:23 ############ Executing Step ==&gt;&gt; ||| results are
-                shown for &quot;&lt;name&gt;&quot; ||| ############
-                [32mINFO [0m WrapperFunctions:wrappers.py:66 Element found with locator ==&gt; firstHeading and
-                locator_type ==&gt; id
-                [32mINFO [0m WrapperFunctions:wrappers.py:101 Element text captured as Amitabh Bachchan on element
-                with locator ==&gt; firstHeading and locator_type ==&gt; id
-                [32mINFO [0m &lt;module&gt;:conftest.py:27 ############ Step ==&gt;&gt; ||| results are shown for
-                &quot;&lt;name&gt;&quot; ||| Execution completed ############
-                [32mINFO [0m &lt;module&gt;:conftest.py:19 ############ Scenario ==&gt;&gt; ||| Basic Wikipedia
-                Search1 ||| Ended ############<br/></div>
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| connection is
+                established between source and target databases ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| connection is established
+                between source and target databases ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| user executes
+                &quot;&lt;query1&gt;&quot; on source and &quot;&lt;query2&gt;&quot; on target databases ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| user executes &quot;&lt;query1&gt;&quot;
+                on source and &quot;&lt;query2&gt;&quot; on target databases ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| results from
+                both database resultsets are compared ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| results from both database
+                resultsets are compared ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:21 ############ Executing Step ==&gt;&gt; ||| user reports any
+                mismatches ||| ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:25 ############ Step ==&gt;&gt; ||| user reports any
+                mismatches ||| Execution completed ############
+                [32mINFO [0m &lt;module&gt;:conftest.py:17 ############ Scenario ==&gt;&gt; ||| Database
+                validation_new ||| Ended ############<br/></div>
         </td>
     </tr>
     </tbody>
