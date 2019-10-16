@@ -12,7 +12,8 @@ class CommonFunctions():
                 print('Scenario name :: ' + scenario_name + ' not defined in star.json, please re-check and confirm!')
             else:
                 scenario_name = scenario_name.upper()
-                browser_type = CommonFunctions().get_star_json('BROWSER_MAPPING', scenario_name)
+                browser_type = CommonFunctions().get_star_json(key_name='WEB', sub_key_name='BROWSER_MAPPING',
+                                                               sub_sub_key_name=scenario_name)
                 print('browser_type is ' + str(browser_type))
                 return browser_type
         except:

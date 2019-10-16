@@ -1,13 +1,15 @@
 {
-  "URLS": {
-    "QA": "https://www.wikipedia.org/",
-    "STAGING": "",
-    "PROD": "",
-    "DEV": ""
-  },
-  "BROWSER_MAPPING": {
-    "BASIC_WIKIPEDIA_SEARCH1": "CHROME",
-    "BASIC_WIKIPEDIA_SEARCH2": "CHROME"
+  "WEB": {
+    "URLS": {
+      "QA": "https://www.wikipedia.org/",
+      "STAGING": "",
+      "PROD": "",
+      "DEV": ""
+    },
+    "BROWSER_MAPPING": {
+      "BASIC_WIKIPEDIA_SEARCH1": "CHROME",
+      "BASIC_WIKIPEDIA_SEARCH2": "CHROME"
+    }
   },
   "DB": {
     "MSSQL": {
@@ -24,6 +26,6 @@
   "DEVELOPED BY": "RAVI SALUNKHE",
   "MODIFIED BY": "<project specific>",
   "FRAMEWORK AUTHOR": "RAVI SALUNKHE(RAVI.SALUNKHE@MASTEK.COM)",
-  "TEST_TYPE": "DB",
+  "TEST_TYPE": "WEB",
   "VERSION": "0.8"
 }
