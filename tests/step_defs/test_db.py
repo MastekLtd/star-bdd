@@ -48,7 +48,3 @@ def user_reports_any_mismatches():
 
     df_final.to_excel('././results/mismatches.xlsx')
 
-    # df_new1.to_excel('././results/mismatch1.xlsx')
-    # print(df_new1.to_excel)
-    # print('###############################################################')
-    # print(df_new2)

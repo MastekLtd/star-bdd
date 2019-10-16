@@ -19,6 +19,7 @@ class DBComparison():
                                                               sub_sub_key_name='TRUSTED_CONNECTION')
 
         # print('trusted_connection1 : ' + trusted_connection1)
+
         # DB2
         driver2 = CommonFunctions().get_star_json(key_name='DB', sub_key_name='MSSQL', sub_sub_key_name='DRIVER')
         server2 = CommonFunctions().get_star_json(key_name='DB', sub_key_name='MSSQL', sub_sub_key_name='SERVER')

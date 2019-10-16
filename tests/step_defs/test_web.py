@@ -8,7 +8,7 @@ scenarios('../features/web.feature')
 
 
 # Given Steps
-@given('the wikipedia home page is displayed')
+@given(parsers.parse('the wikipedia home page is displayed'))
 def navigate_to_app_homepage(driver):
     driver.get(CommonFunctions().get_star_json('URLS', 'QA'))
 
