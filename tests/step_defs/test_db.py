@@ -1,5 +1,5 @@
 """Database comparison feature tests."""
-
+import pandas as pd
 from pytest_bdd import (
     given,
     scenarios,
@@ -8,37 +8,47 @@ from pytest_bdd import (
     parsers
 )
 
-from tests.pageobjects.db_comparison import DBComparison
+from tests.pageobjects.db_comparison import DBComparison as db
 
 scenarios('../features/db.feature')
 
 
 @given(parsers.parse('connection is established between source and target databases'))
-def connection_is_established_between_source_and_target_databases(driver, conn_list):
+def connection_is_established_between_source_and_target_databases():
     """connection is established between source and target databases."""
-    db = DBComparison()
-    print('DB IS CONNECTED')
-    pass
+    global conn
+    conn = db.connect_to_dbs()
 
 
 @when(parsers.parse('user executes "<query1>" on source and "<query2>" on target databases'))
-def user_executes_query_on_source_and_on_target_databases(db, conn1, conn2, query1, query2):
+def user_executes_query_on_source_and_on_target_databases(query1, query2):
     """user executes "<query1>" on source and "<query2>" on target databases."""
-    # db = DBComparison()
-    tables_frames = db.execute_query(conn1, conn2, query1, query2)
+    conn1 = conn[0]
+    conn2 = conn[1]
+    global df
+    df = db.execute_query(conn1, conn2, query1, query2)
 
 
 @when(parsers.parse('results from both database resultsets are compared'))
-def results_from_both_database_resultsets_are_compared(db, conn1, conn2, tables_frames):
+def results_from_both_database_resultsets_are_compared():
     """results from both database resultsets are compared."""
-    # db = DBComparison()
-    results = db.compare_tables(tables_frames)
+    df1 = df[0]
+    df2 = df[1]
+
+    global df_new1, df_new2, df_final
+    df_new1 = df1.merge(df2, how='outer', indicator=True).loc[lambda x: x['_merge'] == 'left_only']
+    df_new2 = df1.merge(df2, how='outer', indicator=True).loc[lambda x: x['_merge'] == 'right_only']
+
+    df_final = pd.concat([df_new1, df_new2])
 
 
 @then(parsers.parse('user reports any mismatches'))
-def user_reports_any_mismatches(results):
+def user_reports_any_mismatches():
     """user reports any mismatches."""
-    print('This is dataframe1\n')
-    print(results[0])
-    print('This is dataframe2\n')
-    print(results[1])
+
+    df_final.to_excel('././results/mismatches.xlsx')
+
+    # df_new1.to_excel('././results/mismatch1.xlsx')
+    # print(df_new1.to_excel)
+    # print('###############################################################')
+    # print(df_new2)

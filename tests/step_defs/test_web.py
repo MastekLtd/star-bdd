@@ -25,4 +25,5 @@ def enter_name_in_searchbox(driver, name):
 def validate_header_value(driver, name):
     header = ResultsScreen(driver)
     header.verify_header_text(name)
+    header.verify_header_text2(name)
     print('this is a print statement in the test_web file')

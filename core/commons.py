@@ -43,11 +43,11 @@ class CommonFunctions():
             print(print_stack())
             print('Error reading data from star.json')
 
-    def take_screenshot(self, message='test'):
+    def take_screenshot(self, driver, message='test'):
         try:
             file_name = message + '_' + str(round(time.time() * 1000)) + '.png'
             screenshot_path = '././screenshots/' + file_name
-            self.driver.save_screenshot(screenshot_path)
+            driver.save_screenshot(screenshot_path)
             print('Screenshot saved successfully to ' + screenshot_path)
         except:
             print(print_stack())

@@ -11,4 +11,11 @@ class ResultsScreen(WrapperFunctions):
     def verify_header_text(self, text):
         header_text = self.get_element_text(self.HEADING_BY_ID, 'id')
         self.verify_text_equals(actual_text=header_text, expected_text=text)
-        print('this is after assert2')
+        # assert header_text == text
+        print('**********************this is after assert2***********************')
+
+    def verify_header_text2(self, text):
+        header_text = self.get_element_text(self.HEADING_BY_ID, 'id')
+        self.verify_text_equals(actual_text=header_text, expected_text=text)
+        # assert header_text == text
+        print('**********************this is after assert2***********************')

@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from traceback import print_stack
 
 import pytest
@@ -34,8 +35,20 @@ def pytest_bdd_step_validation_error(request, feature, scenario, step, step_func
     log.info('############ Step Validation Error found on Step Name ==>> ||| ' + step.name + ' ||| ############')
 
 
+def decorator_screenshot(func):
+    def wrapper(*args, **kwargs):
+        try:
+            func(*args, **kwargs)
+        except AssertionError:
+            CommonFunctions().take_screenshot(driver, 'Error screenshot')
+            raise
+
+    return wrapper
+
+
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
+    timestamp = datetime.now().strftime('%H-%M-%S')
     pytest_html = item.config.pluginmanager.getplugin('html')
     outcome = yield
     report = outcome.get_result()
@@ -46,12 +59,22 @@ def pytest_runtest_makereport(item):
             feature_request = item.funcargs['request']
             driver = feature_request.getfixturevalue('driver')
             if (report.skipped and xfail) or (report.failed and not xfail):
-                screenshot = driver.get_screenshot_as_base64()
-                extra.append(pytest_html.extras.image(screenshot, ''))
-        report.extra = extra
+                # print('****************inside snapshot******************************')
+                snap = timestamp + '.png'
+                snapshot = driver.get_screenshot_as_base64()
+                extra.append(pytest_html.extras.image(snapshot, ''))
+            report.extra = extra
 
 
 # Fixtures
+# def take_screenshot(driver, test_name):
+#     screenshots_dir = "././screenshots"
+#     screenshot_file_path = "{}/{}.png".format(screenshots_dir, test_name)
+#     driver.save_screenshot(
+#         screenshot_file_path
+#     )
+
+
 @pytest.fixture
 def driver(request):
     if CommonFunctions().get_star_json(key_name='TEST_TYPE') == 'WEB':
@@ -75,10 +98,13 @@ def driver(request):
                 d = webdriver.Chrome(executable_path='drivers/chromedriver.exe')
 
             d.implicitly_wait(10)
+            # failed_before = request.session.testsfailed
             yield d
+            # if request.session.testsfailed != failed_before:
+            #     test_name = request.node.name
+            #     take_screenshot(d, test_name)
             d.close()
             d.quit()
-
         except:
             print_stack()
             print('Error in creating driver instance...')
@@ -92,7 +118,6 @@ def driver(request):
     elif CommonFunctions().get_star_json(key_name='TEST_TYPE') == 'DB':
         # work in progress | Ravi Salunkhe
         pass
-
 
     else:
         pass
