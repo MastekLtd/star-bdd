@@ -8,13 +8,13 @@
 import logging
 from traceback import print_stack
 
-import softest
+import pytest
 from selenium.webdriver.common.by import By
 
 from core.star_logger import star_log
 
 
-class WrapperFunctions(softest.TestCase):
+class WrapperFunctions():
     __author__ = 'Ravi Salunkhe'
 
     log = star_log(log_level=logging.DEBUG)
@@ -215,14 +215,6 @@ class WrapperFunctions(softest.TestCase):
             print("Element not found")
             return False
 
-    def silent_assert(func, *args, **kwargs):
-        try:
-            func(*args, **kwargs)
-        except Exception as exc:
-            print
-            exc.message
-
-    # @decorator_screenshot
     def verify_text_equals(self, actual_text, expected_text):
         """
         Function to comapare, verify and log element text value
@@ -230,9 +222,5 @@ class WrapperFunctions(softest.TestCase):
         :param expected_text:
         :return:
         """
-
-        # self.assertEqual(actual_text, expected_text, 'check equality')
-        # check.equal(actual_text, expected_text, 'check equality')
-        assert actual_text == expected_text, 'check equality'
-        # print('***************8end ***********************')
-        # assert actual_text == expected_text, 'Check if both values are equal'
+        pytest.assume(actual_text == expected_text)
+        self.log.info("ASSERTION :: Actual Value = " + actual_text + " with Expected Value as = " + expected_text)

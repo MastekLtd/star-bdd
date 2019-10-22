@@ -1,0 +1,66 @@
+{
+  "name": "test_basic_wikipedia_search1[amitabh bachchan]",
+  "status": "failed",
+  "statusDetails": {
+    "message": "pytest_assume.plugin.FailedAssumption: \nOriginal Failure:\n\n>> NameError(\"name 'header_text' is not defined\")\n\n1 Failed Assumptions:\n\ncore\\wrappers.py:223: AssumptionFailure\n>>\tpytest.assume(actual_text == expected_text)\nAssertionError: assert False",
+    "trace": "request = <FixtureRequest for <Function test_basic_wikipedia_search1[amitabh bachchan]>>\n\n    @pytest.mark.usefixtures(*function_args)\n    def scenario_wrapper(request):\n>       _execute_scenario(feature, scenario, request, encoding)\n\nvenv\\lib\\site-packages\\pytest_bdd\\scenario.py:227: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nvenv\\lib\\site-packages\\pytest_bdd\\scenario.py:189: in _execute_scenario\n    _execute_step_function(request, scenario, step, step_func)\nvenv\\lib\\site-packages\\pytest_bdd\\scenario.py:130: in _execute_step_function\n    step_func(**kwargs)\ntests\\step_defs\\test_web.py:28: in validate_header_value\n    header.verify_full_name_text(name)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <tests.pageobjects.resultsscreen.ResultsScreen object at 0x000001C9D50814C8>, text = 'Sachin'\n\n    def verify_full_name_text(self, text):\n        text = 'Sachin'\n        full_name_text = self.get_element_text(self.FULL_NAME_BY_XPATH, 'xpath')\n>       self.verify_text_equals(actual_text=header_text, expected_text=text)\nE       pytest_assume.plugin.FailedAssumption: \nE       Original Failure:\nE       \nE       >> NameError(\"name 'header_text' is not defined\")\nE       \nE       1 Failed Assumptions:\nE       \nE       core\\wrappers.py:223: AssumptionFailure\nE       >>\tpytest.assume(actual_text == expected_text)\nE       AssertionError: assert False\n\ntests\\pageobjects\\resultsscreen.py:22: FailedAssumption"
+  },
+  "description": "D:\\Study\\star-bdd\\tests\\features\\web.feature: Basic Wikipedia Search1",
+  "attachments": [
+    {
+      "name": "log",
+      "source": "d64fc244-47ef-4b92-9f3b-77e6cdeee17b-attachment.txt",
+      "type": "text/plain"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "name",
+      "value": "'amitabh bachchan'"
+    }
+  ],
+  "start": 1571735738973,
+  "stop": 1571735751204,
+  "uuid": "111b71f4-1c53-4df2-8047-142f28cca942",
+  "historyId": "f83d3d4dd79f59abe2052b493536c03b",
+  "testCaseId": "845e39703c1b90cf72ce16d8fd6582d4",
+  "fullName": "tests.step_defs.test_web#test_basic_wikipedia_search1",
+  "labels": [
+    {
+      "name": "tag",
+      "value": "web"
+    },
+    {
+      "name": "tag",
+      "value": "sachin"
+    },
+    {
+      "name": "parentSuite",
+      "value": "tests.step_defs"
+    },
+    {
+      "name": "suite",
+      "value": "test_web"
+    },
+    {
+      "name": "host",
+      "value": "IN-MH1LPW101177"
+    },
+    {
+      "name": "thread",
+      "value": "18124-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "tests.step_defs.test_web"
+    }
+  ]
+}

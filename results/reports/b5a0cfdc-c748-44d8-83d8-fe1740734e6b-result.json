@@ -1,0 +1,66 @@
+{
+  "name": "test_basic_wikipedia_search1[sachin tendulkar]",
+  "status": "failed",
+  "statusDetails": {
+    "message": "pytest_assume.plugin.FailedAssumption: \n2 Failed Assumptions:\n\ncore\\wrappers.py:223: AssumptionFailure\n>>\tpytest.assume(actual_text == expected_text)\nAssertionError: assert False\n\ncore\\wrappers.py:223: AssumptionFailure\n>>\tpytest.assume(actual_text == expected_text)\nAssertionError: assert False",
+    "trace": "tp = <class 'pytest_assume.plugin.FailedAssumption'>, value = None, tb = None\n\n    def reraise(tp, value, tb=None):\n        try:\n            if value is None:\n                value = tp()\n            if value.__traceback__ is not tb:\n>               raise value.with_traceback(tb)\nE               pytest_assume.plugin.FailedAssumption: \nE               2 Failed Assumptions:\nE               \nE               core\\wrappers.py:223: AssumptionFailure\nE               >>\tpytest.assume(actual_text == expected_text)\nE               AssertionError: assert False\nE               \nE               core\\wrappers.py:223: AssumptionFailure\nE               >>\tpytest.assume(actual_text == expected_text)\nE               AssertionError: assert False\n\nvenv\\lib\\site-packages\\six.py:692: FailedAssumption"
+  },
+  "description": "D:\\Study\\star-bdd\\tests\\features\\web.feature: Basic Wikipedia Search1",
+  "attachments": [
+    {
+      "name": "log",
+      "source": "26581137-39bd-41c2-85d5-cf3b4c6d9cf4-attachment.txt",
+      "type": "text/plain"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "name",
+      "value": "'sachin tendulkar'"
+    }
+  ],
+  "start": 1571735939665,
+  "stop": 1571735945981,
+  "uuid": "3c3cc7f9-3606-40d8-9ea4-d361c7029b3c",
+  "historyId": "0081d258c00a234fd5fe16abe952d45b",
+  "testCaseId": "845e39703c1b90cf72ce16d8fd6582d4",
+  "fullName": "tests.step_defs.test_web#test_basic_wikipedia_search1",
+  "labels": [
+    {
+      "name": "tag",
+      "value": "sachin"
+    },
+    {
+      "name": "tag",
+      "value": "web"
+    },
+    {
+      "name": "parentSuite",
+      "value": "tests.step_defs"
+    },
+    {
+      "name": "suite",
+      "value": "test_web"
+    },
+    {
+      "name": "host",
+      "value": "IN-MH1LPW101177"
+    },
+    {
+      "name": "thread",
+      "value": "15168-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "tests.step_defs.test_web"
+    }
+  ]
+}
