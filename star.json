@@ -22,6 +22,7 @@
     "MONGODB": {},
     "POSTGRESQL": {}
   },
+  "REPORTING": "ALLURE",
   "PROJECT_NAME": "CORE TEAM",
   "DEVELOPED BY": "RAVI SALUNKHE",
   "MODIFIED BY": "<project specific>",

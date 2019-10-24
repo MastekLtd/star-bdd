@@ -1,0 +1,117 @@
+{
+  "name": "test_basic_wikipedia_search1[sachin tendulkar]",
+  "status": "failed",
+  "statusDetails": {
+    "message": "pytest_assume.plugin.FailedAssumption: \n2 Failed Assumptions:\n\ncore\\wrappers.py:225: AssumptionFailure\n>>\tpytest.assume(actual_text == expected_text)\nAssertionError: assert False\n\ncore\\wrappers.py:225: AssumptionFailure\n>>\tpytest.assume(actual_text == expected_text)\nAssertionError: assert False",
+    "trace": "tp = <class 'pytest_assume.plugin.FailedAssumption'>, value = None, tb = None\n\n    def reraise(tp, value, tb=None):\n        try:\n            if value is None:\n                value = tp()\n            if value.__traceback__ is not tb:\n>               raise value.with_traceback(tb)\nE               pytest_assume.plugin.FailedAssumption: \nE               2 Failed Assumptions:\nE               \nE               core\\wrappers.py:225: AssumptionFailure\nE               >>\tpytest.assume(actual_text == expected_text)\nE               AssertionError: assert False\nE               \nE               core\\wrappers.py:225: AssumptionFailure\nE               >>\tpytest.assume(actual_text == expected_text)\nE               AssertionError: assert False\n\nvenv\\lib\\site-packages\\six.py:692: FailedAssumption"
+  },
+  "description": "D:\\Study\\star-bdd\\tests\\features\\web.feature: Basic Wikipedia Search1",
+  "steps": [
+    {
+      "name": "enter_text_in_searchbox",
+      "status": "passed",
+      "parameters": [
+        {
+          "name": "search_text",
+          "value": "'sachin tendulkar'"
+        }
+      ],
+      "start": 1571922123770,
+      "stop": 1571922126320
+    },
+    {
+      "name": "verify_text_equals",
+      "status": "passed",
+      "parameters": [
+        {
+          "name": "actual_text",
+          "value": "'Sachin Tendulkar'"
+        },
+        {
+          "name": "expected_text",
+          "value": "'sachin tendulkar'"
+        }
+      ],
+      "start": 1571922126580,
+      "stop": 1571922126592
+    },
+    {
+      "name": "verify_text_equals",
+      "status": "passed",
+      "parameters": [
+        {
+          "name": "actual_text",
+          "value": "'Sachin Ramesh Tendulkar'"
+        },
+        {
+          "name": "expected_text",
+          "value": "'Sachin'"
+        }
+      ],
+      "start": 1571922126689,
+      "stop": 1571922126700
+    }
+  ],
+  "attachments": [
+    {
+      "name": "Screenshot",
+      "source": "700b87de-1446-43b0-bdc4-d58432555f0e-attachment.png",
+      "type": "image/png"
+    },
+    {
+      "name": "log",
+      "source": "7c2bb8a4-4bd2-44a6-af23-9c9d57efce82-attachment.txt",
+      "type": "text/plain"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "name",
+      "value": "'sachin tendulkar'"
+    }
+  ],
+  "start": 1571922116715,
+  "stop": 1571922126701,
+  "uuid": "04716a85-f667-4857-8e23-dd5b6a20d774",
+  "historyId": "0081d258c00a234fd5fe16abe952d45b",
+  "testCaseId": "845e39703c1b90cf72ce16d8fd6582d4",
+  "fullName": "tests.step_defs.test_web#test_basic_wikipedia_search1",
+  "labels": [
+    {
+      "name": "tag",
+      "value": "sachin"
+    },
+    {
+      "name": "tag",
+      "value": "web"
+    },
+    {
+      "name": "parentSuite",
+      "value": "tests.step_defs"
+    },
+    {
+      "name": "suite",
+      "value": "test_web"
+    },
+    {
+      "name": "host",
+      "value": "IN-MH1LPW101177"
+    },
+    {
+      "name": "thread",
+      "value": "11268-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "tests.step_defs.test_web"
+    }
+  ]
+}

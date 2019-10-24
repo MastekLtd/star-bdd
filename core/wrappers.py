@@ -8,6 +8,7 @@
 import logging
 from traceback import print_stack
 
+import allure
 import pytest
 from selenium.webdriver.common.by import By
 
@@ -215,9 +216,10 @@ class WrapperFunctions():
             print("Element not found")
             return False
 
+    @allure.step
     def verify_text_equals(self, actual_text, expected_text):
         """
-        Function to comapare, verify and log element text value
+        Function to compare, verify and log element text value
         :param actual_text:
         :param expected_text:
         :return:

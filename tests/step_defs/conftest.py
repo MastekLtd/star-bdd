@@ -2,7 +2,9 @@ import logging
 from datetime import datetime
 from traceback import print_stack
 
+import allure
 import pytest
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 
 from core.commons import CommonFunctions
@@ -28,22 +30,11 @@ def pytest_bdd_after_step(request, feature, scenario, step, step_func, step_func
 
 
 def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
-    log.info('############ Error Found on Step Name ==>> ||| ' + step.name + ' ||| ############')
+    log.error('!!!!!!!!!! Error Found on Step Name ==>> ||| ' + step.name + ' ||| !!!!!!!!!!')
 
 
 def pytest_bdd_step_validation_error(request, feature, scenario, step, step_func, step_func_args, exception):
-    log.info('############ Step Validation Error found on Step Name ==>> ||| ' + step.name + ' ||| ############')
-
-
-def decorator_screenshot(func):
-    def wrapper(*args, **kwargs):
-        try:
-            func(*args, **kwargs)
-        except AssertionError:
-            CommonFunctions().take_screenshot(driver, 'Error screenshot')
-            raise
-
-    return wrapper
+    log.error('!!!!!!!!!! Step Validation Error found on Step Name ==>> ||| ' + step.name + ' ||| !!!!!!!!!!')
 
 
 @pytest.mark.hookwrapper
@@ -61,8 +52,12 @@ def pytest_runtest_makereport(item):
             if (report.skipped and xfail) or (report.failed and not xfail):
                 # print('****************inside snapshot******************************')
                 snap = timestamp + '.png'
-                snapshot = driver.get_screenshot_as_base64()
-                extra.append(pytest_html.extras.image(snapshot, ''))
+                if CommonFunctions().get_star_json(key_name='REPORTING') == 'PYTEST-HTML':
+                    snapshot = driver.get_screenshot_as_base64()
+                    extra.append(pytest_html.extras.image(snapshot, ''))
+                elif CommonFunctions().get_star_json(key_name='REPORTING') == 'ALLURE':
+                    snapshot = driver.get_screenshot_as_png()
+                    allure.attach(snapshot, name="Screenshot", attachment_type=AttachmentType.PNG)
             report.extra = extra
 
 
@@ -121,10 +116,3 @@ def driver(request):
 
     else:
         pass
-
-# to be added later
-# @pytest.fixture
-# def get_page_instance(driver):
-#
-#     home_screen = HomeScreen(driver)
-#     result_screen = ResultsScreen(driver)
