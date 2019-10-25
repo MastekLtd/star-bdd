@@ -2,6 +2,8 @@ import json
 import time
 from traceback import print_stack
 
+import allure
+
 
 class CommonFunctions():
 
@@ -54,5 +56,7 @@ class CommonFunctions():
             print(print_stack())
             print_stack('Error taking screenshot!')
 
-    def log_pass(self):
-        pass
+    @allure.step
+    def report_logger(self, step_name, log_details):
+        with allure.step(step_name):
+            log_details

@@ -11,6 +11,18 @@
       "BASIC_WIKIPEDIA_SEARCH2": "CHROME"
     }
   },
+  "MOBILE": {
+    "DEVICE_COUNT": "2",
+    "DEVICE_LIST": {
+      "DEVICE_1": {
+      },
+      "DEVICE_2": {
+      }
+    }
+  },
+  "API": {
+    "END_POINT": ""
+  },
   "DB": {
     "MSSQL": {
       "DRIVER": "{SQL Server};",
@@ -28,5 +40,5 @@
   "MODIFIED BY": "<project specific>",
   "FRAMEWORK AUTHOR": "RAVI SALUNKHE(RAVI.SALUNKHE@MASTEK.COM)",
   "TEST_TYPE": "WEB",
-  "VERSION": "0.8"
+  "VERSION": "0.8.5"
 }
